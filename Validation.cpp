@@ -15,7 +15,7 @@ public:
         {
             cin.clear();
             cin.ignore(1000, '\n');
-            cout << "Please enter a number" << endl;
+            cout << "Please enter a number : " ;
             getint();
         }
         return num;

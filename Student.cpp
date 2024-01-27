@@ -7,7 +7,6 @@ using namespace std;
 class Student : public Person
 {
 private:
-    int clas;
     float khmer;
     float math;
     float english;
@@ -19,7 +18,7 @@ private:
 public:
     Student() : Person()
     {
-        clas = 0;
+
         khmer = 0;
         math = 0;
         english = 0;
@@ -27,10 +26,17 @@ public:
         avg = 0;
         grade = "";
     }
-    Student(string firstName, string lastName, int id, string gender, string username, string password, string role) : Person(firstName, lastName, id, gender, username, password, role)
+    Student(string firstName, string lastName, int id, string gender, string username, string password, string role, float khmer, float math, float english, float total, float avg, string grade) : Person(firstName, lastName, id, gender, username, password, role)
     {
         role = "Student";
+        this->khmer = khmer;
+        this->math = math;
+        this->english = english;
+        this->total = total;
+        this->avg = avg;
+        this->grade = grade;
     }
+
     // setChoice
     void setUsername(string username)
     {
@@ -52,8 +58,18 @@ public:
     {
         this->lastName = lastName;
     }
-    void setGender(string gender){
+    void setGender(string gender)
+    {
         this->gender = gender;
+    }
+    void SetScore(float khmer, float math, float english, float total, float avg, string grade)
+    {
+        this->khmer = khmer;
+        this->math = math;
+        this->english = english;
+        this->total = total;
+        this->avg = avg;
+        this->grade = grade;
     }
 
     void Add()
@@ -81,9 +97,15 @@ public:
         id = ID++;
         username = "St" + to_string(id);
         password = "123";
+        khmer = 0;
+        math = 0;
+        english = 0;
+        total = 0;
+        avg = 0;
+        grade = "N/A";
     }
-    void Update (){
-        
+    void Update()
+    {
     }
     void AddRecord()
     {
@@ -94,12 +116,41 @@ public:
         cout << "Enter English score: ";
         english = VG.getfloat();
         total = khmer + math + english;
+        avg = total / 3;
+        if (avg >= 90)
+        {
+            grade = "A";
+        }
+        else if (avg >= 80)
+        {
+            grade = "B";
+        }
+        else if (avg >= 70)
+        {
+            grade = "C";
+        }
+        else if (avg >= 60)
+        {
+            grade = "D";
+        }
+        else if (avg >= 50)
+        {
+            grade = "E";
+        }
+        else if (avg < 50)
+        {
+            grade = "F";
+        }
+        else if (avg < 0)
+        {
+            grade = "N/A";
+        }
     }
 
     // getChoice
     void Show()
     {
-        cout << id << "\t\t" + firstName + "\t" + lastName + "\t" + gender + "\t\t" + role << endl;
+        cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" + gender + "\t\t" + role << endl;
     }
     void View()
     {
@@ -141,4 +192,29 @@ public:
     {
         return gender;
     }
+    float getKhmer()
+    {
+        return khmer;
+    }
+    float getMath()
+    {
+        return math;
+    }
+    float getEnglish()
+    {
+        return english;
+    }
+    float getTotal()
+    {
+        return total;
+    }
+    float getAvg()
+    {
+        return avg;
+    }
+    string getGrade()
+    {
+        return grade;
+    }
+    
 };

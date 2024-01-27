@@ -49,7 +49,8 @@ public:
     virtual void setGender(string gender) = 0;
     virtual void Add() = 0;
     virtual void Update() = 0;
-    virtual void AddRecord() = 0;
+    
+    
     // getChoice
     virtual string getUsername() = 0;
     virtual string getPassword() = 0;
@@ -58,6 +59,12 @@ public:
     virtual string getlastName() = 0;
     virtual int getID() = 0;
     virtual string getGender() = 0;
+    virtual float getKhmer() = 0;
+    virtual float getMath() = 0;
+    virtual float getEnglish() = 0;
+    virtual float getTotal() = 0;
+    virtual float getAvg() = 0;
+    virtual string getGrade() = 0;
     //Output
     virtual void Show () = 0;
     virtual void View () = 0;

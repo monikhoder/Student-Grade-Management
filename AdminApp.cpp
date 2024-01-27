@@ -79,7 +79,8 @@ private:
                 save.loadVectorFromFile(filename, users);
                 break;
             case 0:
-
+                cout << "*******Exit*******" << endl;
+                save.saveVectorToFile(filename, users);
                 break;
             }
 
@@ -87,7 +88,10 @@ private:
     }
 
 public:
-    #include "InvalidUser.cpp"
+    Admin()
+    {
+        save.loadVectorFromFile(filename, users);
+    }
 
     void login()
     {
@@ -103,5 +107,12 @@ public:
         }
         
        
+    }
+    ~Admin()
+    {
+        for (int i = 0; i < users.size(); i++)
+        {
+            delete users[i];
+        }
     }
 };

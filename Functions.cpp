@@ -113,7 +113,7 @@ public:
 
     void Show(vector<Person *> users)
     {
-        cout << "No\t\tID\t\tFirstName/LastName\t\tGender\t\tRole" << endl;
+        cout << "No\t\tID\t\tFirstName/LastName\tGender\t\tRole" << endl;
         for (int i = 0; i < users.size(); i++)
         {
             cout << i + 1 << "\t\t";
@@ -184,4 +184,5 @@ public:
 
         } while (choice != 0 && choice > 3);
     }
+    
 };

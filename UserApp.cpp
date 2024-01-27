@@ -8,6 +8,7 @@
 #include "Person.cpp"
 #include "Student.cpp"
 #include "Teacher.cpp"
+#include "UserNotFoundException.cpp"
 using namespace std;
 
 class UserApp
@@ -17,6 +18,7 @@ private:
     Save save;
     Functions fun;
     Validation VG;
+    Student st;
     int choice;
     string Userfilename = "user.dat";
     vector<Person *> users;
@@ -29,7 +31,6 @@ private:
             switch (choice)
             {
             case 1:
-
                 break;
             case 2:
 
@@ -47,6 +48,7 @@ private:
 
                 break;
             case 0:
+            save.saveVectorToFile(Userfilename, users);
                 return;
                 break;
             default:
@@ -64,7 +66,14 @@ private:
             switch (choice)
             {
             case 1:
+            int idx;
+            idx = fun.Search(users);
+            if (idx == -1 && users[idx]->getRole() != "Student"){
+                throw UserNotFoundException();
+            }else{
 
+            }
+            
                 break;
             case 2:
 
@@ -82,6 +91,7 @@ private:
 
                 break;
             case 0:
+            save.saveVectorToFile(Userfilename, users);
                 return;
                 break;
             default:
@@ -92,7 +102,6 @@ private:
     }
     int loginIndex()
     {
-        save.loadVectorFromFile(Userfilename, users);
         string username;
         string password;
         cout << "Enter username: ";
@@ -112,6 +121,10 @@ private:
     }
 
 public:
+    UserApp()
+    {
+        save.loadVectorFromFile(Userfilename, users);
+    }
     void login()
     {
         int index = loginIndex();
@@ -126,6 +139,13 @@ public:
         else if (users[index]->getRole() == "Teacher")
         {
             Teacher(index);
+        }
+    }
+    ~UserApp()
+    {
+        for (int i = 0; i < users.size(); i++)
+        {
+            delete users[i];
         }
     }
 };

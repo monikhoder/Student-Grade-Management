@@ -65,7 +65,7 @@ void Update (){
 void AddRecord(){}
 
 void Show(){
-    cout << id << "\t\t" + firstName + "\t" + lastName + "\t" + gender + "\t\t" + role << endl;
+    cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" + gender + "\t\t" + role << endl;
 }
 void View()
     {
@@ -102,5 +102,24 @@ int getID()
 string getGender(){
     return gender;
 }
+float getKhmer(){
+    return 0;
+}
+float getMath(){
+    return 0;
+}
+float getEnglish(){
+    return 0;
+}
+float getTotal(){
+    return 0;
+}
+float getAvg(){
+    return 0;
+}
+string getGrade(){
+    return "-";
+}
+
 
 };
