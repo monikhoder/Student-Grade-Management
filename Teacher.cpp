@@ -27,6 +27,17 @@ void setPassword(string password)
     {
         this->password = password;
     }
+void setFirstName(string firstName)
+    {
+        this->firstName = firstName;
+    }
+void setLastName(string lastName)
+    {
+        this->lastName = lastName;
+    }
+void setGender(string gender){
+        this->gender = gender;
+    }
 void Add(){
         int choice;
                 cout << "Enter first name: ";

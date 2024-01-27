@@ -135,7 +135,6 @@ public:
     {
         int choice;
         string set;
-        string gender;
         do
         {
             cout << "1. Update First Name" << endl;
@@ -149,28 +148,32 @@ public:
             case 1:
                 cout << "Enter new First Name :";
                 set = VG.getstringNoSpace();
-
+                users[index]->setFirstName(set);
                 break;
             case 2:
                 cout << "Enter new Last Name :";
                 set = VG.getstringNoSpace();
+                users[index]->setLastName(set);
                 break;
             case 3:
-
-                cout << "Enter new Gender (1= Male / 2= Female) :";
+                int ch;
                 do
                 {
-                    choice = VG.getint();
-                    if (choice == 1)
+                    cout << "Enter new Gender (1= Male / 2= Female) :";
+                    ch = VG.getint();
+                    if (ch == 1)
                     {
-                        gender == "Male";
+                        set = "Male";
                     }
-                    else if (choice == 2)
+                    else if (ch == 2)
                     {
-                        gender = "Female";
+                        set = "Female";
+                    }else{
+                        cout << "Wrong option" << endl;
                     }
 
-                } while (choice != 1 || choice != 2);
+                } while (ch != 1 && ch != 2);
+                users[index]->setGender(set);
                 break;
             case 0:
                 break;

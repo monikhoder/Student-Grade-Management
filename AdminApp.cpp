@@ -62,9 +62,9 @@ private:
                 break;
             case 6:
                 cout << "*******Update user account*******" << endl;
-                int index;
-                index = fun.Search(users);
-                
+                int idx;
+                idx = fun.Search(users);
+                fun.Update(idx, users);
                 break;
             case 7:
                 cout << "*******Remove user account*******" << endl;

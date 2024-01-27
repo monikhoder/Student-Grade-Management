@@ -44,6 +44,9 @@ public:
     virtual void setUsername(string username) = 0;
     virtual void setID(int id) = 0;
     virtual void setPassword(string password) = 0;
+    virtual void setFirstName(string firstName) = 0;
+    virtual void setLastName(string lastName) = 0;
+    virtual void setGender(string gender) = 0;
     virtual void Add() = 0;
     virtual void Update() = 0;
     virtual void AddRecord() = 0;
