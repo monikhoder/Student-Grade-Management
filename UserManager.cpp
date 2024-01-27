@@ -26,7 +26,8 @@ private:
 public:
 vector <Person*>& getUsers(){
     return users;
-} 
+    }
+    
     void AddStudent()
     {
         st.Add();

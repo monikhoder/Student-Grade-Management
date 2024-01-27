@@ -68,6 +68,12 @@ public:
         id = ID++;
         username = "St" + to_string(id);
         password = "123";
+        khmer = 0;
+        math = 0;
+        english = 0;
+        total = 0;
+        avg = 0;
+        grade = "";
     }
     void AddRecord(){
         cout << "Enter Khmer score: ";
