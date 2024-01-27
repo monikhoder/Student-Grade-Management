@@ -8,6 +8,7 @@
 #include "Person.cpp"
 #include "Student.cpp"
 #include "Teacher.cpp"
+#include "Modify.cpp"
 #include "UserNotFoundException.cpp"
 using namespace std;
 
@@ -19,6 +20,7 @@ private:
     Functions fun;
     Validation VG;
     Student st;
+    Modify md;
     int choice;
     string Userfilename = "user.dat";
     vector<Person *> users;
@@ -31,21 +33,20 @@ private:
             switch (choice)
             {
             case 1:
+            cout << "=========View Information=========" << endl;
+            users[index]->View();
                 break;
             case 2:
-
+            cout << "=========View Record=========" << endl;
+            users[index]->ViewRecord();
                 break;
             case 3:
-
+            cout << "=========Modify Username=========" << endl;
+            md.ChangeUsername(users, index);
                 break;
             case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
+            cout << "=========Modify Password=========" << endl;
+            md.ChangePassword(users, index);
                 break;
             case 0:
             save.saveVectorToFile(Userfilename, users);
@@ -63,11 +64,11 @@ private:
         {
             menu.teacherMenu();
             choice = VG.getint();
+            int idx;
             switch (choice)
             {
             case 1:
             cout << "=========Add student record=========" << endl;
-            int idx;
             idx = fun.Search(users);
             if (idx == -1 && users[idx]->getRole() != "Student"){
                 throw UserNotFoundException();
@@ -77,20 +78,36 @@ private:
             
                 break;
             case 2:
-
+            cout << "=========Search student=========" << endl;
+            idx = fun.Search(users);
+            if (idx == -1 && users[idx]->getRole() != "Student"){
+                throw UserNotFoundException();
+            }else{
+                users[idx]->View();
+                users[idx]->ViewRecord();
+            }
                 break;
             case 3:
-
+            cout << "=========Update student record=========" << endl;
+            int idx;
+            idx = fun.Search(users);
+            if (idx == -1 && users[idx]->getRole() != "Student"){
+                throw UserNotFoundException();
+            }else{
+                fun.AddScore(idx, users);
+            }
                 break;
             case 4:
             cout << "=========View student record=========" << endl;
             fun.ShowRecord(users);
                 break;
             case 5:
-
+            cout << "=========Modify username=========" << endl;
+            md.ChangeUsername(users, index);
                 break;
             case 6:
-
+            cout << "=========Modify password=========" << endl;
+            md.ChangePassword(users, index);
                 break;
             case 0:
             save.saveVectorToFile(Userfilename, users);

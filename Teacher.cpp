@@ -74,6 +74,7 @@ void View()
         cout << "Role : " << role << endl;
     }
 void ShowRecord(){}
+void ViewRecord(){}
 string getUsername()
     {
         return username;

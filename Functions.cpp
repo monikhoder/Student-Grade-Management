@@ -120,17 +120,6 @@ public:
             users[i]->Show();
         }
     }
-    void View(int index, vector<Person *> users)
-    {
-        if (index != -1)
-        {
-            users[index]->View();
-        }
-        else
-        {
-            cout << "User not found" << endl;
-        }
-    }
     void Update(int index, vector<Person *> &users)
     {
         int choice;

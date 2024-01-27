@@ -69,5 +69,6 @@ public:
     virtual void Show () = 0;
     virtual void View () = 0;
     virtual void ShowRecord() = 0;
+    virtual void ViewRecord() = 0;
    
 };

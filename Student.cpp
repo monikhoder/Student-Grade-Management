@@ -158,6 +158,14 @@ public:
     {
        cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" << khmer << "\t" << math << "\t" << english << "\t" << total << "\t" << avg << "\t" << grade << endl;
     }
+    void ViewRecord(){
+        cout << "Khmer : " << khmer << endl;
+        cout << "Math : " << math << endl;
+        cout << "English : " << english << endl;
+        cout << "Total : " << total << endl;
+        cout << "Average : " << avg << endl;
+        cout << "Grade : " << grade << endl;
+    }
     string getUsername()
     {
         return username;

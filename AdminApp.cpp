@@ -11,6 +11,7 @@
 #include "InvalidUser.cpp"
 #include "Functions.cpp"
 #include "Save.cpp"
+#include "UserNotFoundException.cpp"
 using namespace std;
 class Admin
 {
@@ -32,7 +33,7 @@ private:
         do
         {
             menu.adminMenu();
-
+            int idx;
             choice = VG.getint();
             switch (choice)
             {
@@ -48,9 +49,13 @@ private:
                 break;
             case 3:
                 cout << "*******Search user*******" << endl;
-                int index;
-                index = fun.Search(users);
-                fun.View(index, users);
+                idx = fun.Search(users);
+                if (idx != -1){
+                    users[idx]->View();
+                }else{
+                    throw UserNotFoundException();
+                }
+                
                 break;
             case 4:
                 cout << "*******Sort user list*******" << endl;
@@ -62,7 +67,6 @@ private:
                 break;
             case 6:
                 cout << "*******Update user account*******" << endl;
-                int idx;
                 idx = fun.Search(users);
                 fun.Update(idx, users);
                 break;
