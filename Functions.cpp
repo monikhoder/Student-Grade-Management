@@ -12,11 +12,10 @@
 #include "Save.cpp"
 using namespace std;
 
-class UserManager
+class Functions
 {
 private:
-
-    vector<Person*> users;
+    // vector<Person*> users;
     Student st;
     Teacher tc;
     Menu menu;
@@ -24,28 +23,13 @@ private:
     string filename = "user.dat";
 
 public:
-vector <Person*>& getUsers(){
-    return users;
-    }
-    
-    void AddStudent()
-    {
-        st.Add();
-        users.push_back(new Student(st));
-        
-    }
-    void AddTeacher()
-    {
-        tc.Add();
-        users.push_back(new Teacher(tc));
-        
-    }
-    int Search()
+    int Search(vector<Person *> users)
     {
         cout << "1. Search by ID" << endl;
         cout << "2. Search by Name" << endl;
         int choice;
-        do {
+        do
+        {
             cout << "Please choose your option : ";
             choice = VG.getint();
             if (choice != 1 && choice != 2)
@@ -84,14 +68,14 @@ vector <Person*>& getUsers(){
                 }
             }
         }
-        
-        
+
         return -1;
     }
-    void Sort()
+    void Sort(vector<Person *> &users)
     {
         int choice;
-        do {
+        do
+        {
             cout << "1. Sort by ID" << endl;
             cout << "2. Sort by Name" << endl;
             cout << "Please choose your option : ";
@@ -103,42 +87,20 @@ vector <Person*>& getUsers(){
         } while (choice != 1 && choice != 2);
         if (choice == 1)
         {
-            sort(users.begin(), users.end(), [](Person* a, Person* b) {return a->getID() < b->getID(); });
+            sort(users.begin(), users.end(), [](Person *a, Person *b)
+                 { return a->getID() < b->getID(); });
         }
         else if (choice == 2)
         {
-            sort(users.begin(), users.end(), [](Person* a, Person* b) {return a->getfirstName() < b->getfirstName(); });
+            sort(users.begin(), users.end(), [](Person *a, Person *b)
+                 { return a->getfirstName() < b->getfirstName(); });
         }
     }
-    void Update(){
-        cout << "Search user to update" << endl;
-        int index;
-        index = Search();
-        if (index != -1){
-            users[index]->Add();
-        }else{
-            cout << "User not found" << endl;
-        }
 
-    }
-    void View(int index)
-    {
-        
-        if (index == -1)
-        {
-            cout << "User Not found" << endl;
-        }
-        else
-        {
-            cout << "No\t\tID\t\tName\t\t\tGender\t\tRole" << endl;
-            cout << index + 1 << "\t\t";
-            users[index]->Show();
-        }
-    }
-    void Remove()
+    void Remove(vector<Person *> &users)
     {
         int index;
-        index = Search();
+        index = Search(users);
         if (index != -1)
         {
             users.erase(users.begin() + index);
@@ -148,41 +110,75 @@ vector <Person*>& getUsers(){
             cout << "User not found" << endl;
         }
     }
-    void Savefile(){
-        Save sv;
-        sv.saveVectorToFile(filename, users);
 
-    }
-    void Load(){
-        Save sv;
-        sv.loadVectorFromFile(filename, users);
-    }
-   
-
-    void Show()
+    void Show(vector<Person *> users)
     {
         cout << "No\t\tID\t\tFirstName/LastName\t\tGender\t\tRole" << endl;
         for (int i = 0; i < users.size(); i++)
         {
             cout << i + 1 << "\t\t";
-           users[i]->Show();
-           
-        }
-    }
-    void ShowRecord(){
-        int no = 0;
-        cout << "ID\tName\t\tGender\tKhmer\tMath\tPhysic\tBiology\tChemistry\tGeography\tHistory\tEnglish\tTotal" << endl;
-        for (int i = 0; i < users.size(); i++)
-        {
-            if (users[i]->getRole() == "Student")
-            {
-            cout << no++ << "\t";
             users[i]->Show();
-            users[i]->ShowRecord();
-            }
-            
         }
     }
-    
-   
+    void View(int index, vector<Person *> users)
+    {
+        if (index != -1)
+        {
+            users[index]->View();
+        }
+        else
+        {
+            cout << "User not found" << endl;
+        }
+    }
+    void Update(int index, vector<Person *> &users)
+    {
+        int choice;
+        string set;
+        string gender;
+        do
+        {
+            cout << "1. Update First Name" << endl;
+            cout << "2. Update Last Name" << endl;
+            cout << "3. Update Gender" << endl;
+            cout << "0. Back" << endl;
+            cout << "which data you want to update?";
+            choice = VG.getint();
+            switch (choice)
+            {
+            case 1:
+                cout << "Enter new First Name :";
+                set = VG.getstringNoSpace();
+
+                break;
+            case 2:
+                cout << "Enter new Last Name :";
+                set = VG.getstringNoSpace();
+                break;
+            case 3:
+
+                cout << "Enter new Gender (1= Male / 2= Female) :";
+                do
+                {
+                    choice = VG.getint();
+                    if (choice == 1)
+                    {
+                        gender == "Male";
+                    }
+                    else if (choice == 2)
+                    {
+                        gender = "Female";
+                    }
+
+                } while (choice != 1 || choice != 2);
+                break;
+            case 0:
+                break;
+            default:
+                cout << "Invalid data" << endl;
+                break;
+            }
+
+        } while (choice != 0 && choice > 3);
+    }
 };

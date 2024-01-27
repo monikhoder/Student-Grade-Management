@@ -1,10 +1,16 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Menu.cpp"
+#include "Person.cpp"
 #include "Student.cpp"
-#include "UserManager.cpp"
+#include "Teacher.cpp"
+#include "Functions.cpp"
 #include "Validation.cpp"
+#include "InvalidUser.cpp"
+#include "Functions.cpp"
+#include "Save.cpp"
 using namespace std;
 class Admin
 {
@@ -12,9 +18,14 @@ private:
     string username = "admin";
     string password = "admin";
     Menu menu;
-    UserManager usm;
+    Functions fun;
     Validation VG;
-
+    invalidUser invalid;
+    vector<Person*> users;
+    Student st;
+    Teacher tc;
+    Save save;
+    string filename = "user.dat";
     void run()
     {
         int choice;
@@ -27,41 +38,45 @@ private:
             {
             case 1:
                 cout << "*******Add Student account*******" << endl;
-                usm.AddStudent();
+                st.Add();
+                users.push_back(new Student(st));
                 break;
             case 2:
                 cout << "*******Add Teacher account*******" << endl;
-                usm.AddTeacher();
+                tc.Add();
+                users.push_back(new Teacher(tc));
                 break;
             case 3:
                 cout << "*******Search user*******" << endl;
                 int index;
-                index = usm.Search();
-                usm.View(index);
+                index = fun.Search(users);
+                fun.View(index, users);
                 break;
             case 4:
                 cout << "*******Sort user list*******" << endl;
-                usm.Sort();
+                fun.Sort(users);
                 break;
             case 5:
                 cout << "*******View user list*******" << endl;
-                usm.Show();
+                fun.Show(users);
                 break;
             case 6:
                 cout << "*******Update user account*******" << endl;
-                usm.Update();
+                int index;
+                index = fun.Search(users);
+                
                 break;
             case 7:
                 cout << "*******Remove user account*******" << endl;
-                usm.Remove();
+                fun.Remove(users);
                 break;
             case 8:
                 cout << "*******Save*******" << endl;
-                usm.Savefile();
+                save.saveVectorToFile(filename, users);
                 break;
             case 9:
                 cout << "*******Load*******" << endl;
-                usm.Load();
+                save.loadVectorFromFile(filename, users);
                 break;
             case 0:
 
@@ -72,22 +87,21 @@ private:
     }
 
 public:
+    #include "InvalidUser.cpp"
+
     void login()
     {
-        string user;
-        string pass;
-        cout << "Enter Username : ";
-        user = VG.getstringNoSpace();
-        cout << "Enter Password : ";
-        pass = VG.getstringNoSpace();
-        if (user == username && pass == password)
+        bool check = false;
+        check = invalid.AdminLogin(username, password);
+        if (check == true)
         {
-            cout << "Login success" << endl;
             run();
         }
         else
         {
-            cout << "Invalid Username or Password" << endl;
+            cout << "Wrong username or password" << endl;
         }
+        
+       
     }
 };

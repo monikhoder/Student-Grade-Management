@@ -45,6 +45,7 @@ public:
     virtual void setID(int id) = 0;
     virtual void setPassword(string password) = 0;
     virtual void Add() = 0;
+    virtual void Update() = 0;
     virtual void AddRecord() = 0;
     // getChoice
     virtual string getUsername() = 0;
@@ -56,6 +57,7 @@ public:
     virtual string getGender() = 0;
     //Output
     virtual void Show () = 0;
+    virtual void View () = 0;
     virtual void ShowRecord() = 0;
    
 };

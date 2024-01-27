@@ -48,11 +48,21 @@ void Add(){
                 username = "Tc" + to_string(id);
                 password = "123";
             }
+void Update (){
+        
+    }
 void AddRecord(){}
 
 void Show(){
     cout << id << "\t\t" + firstName + "\t" + lastName + "\t" + gender + "\t\t" + role << endl;
 }
+void View()
+    {
+        cout << "ID: " << id << endl;
+        cout << "Full Name : " << firstName << " " << lastName << endl;
+        cout << "Gender : " << gender << endl;
+        cout << "Role : " << role << endl;
+    }
 void ShowRecord(){}
 string getUsername()
     {
