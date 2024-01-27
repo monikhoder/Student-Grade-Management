@@ -104,17 +104,11 @@ public:
         avg = 0;
         grade = "N/A";
     }
-    void Update()
+    void Setscore(float khmer, float math, float english)
     {
-    }
-    void AddRecord()
-    {
-        cout << "Enter Khmer score: ";
-        khmer = VG.getfloat();
-        cout << "Enter Math score: ";
-        math = VG.getfloat();
-        cout << "Enter English score: ";
-        english = VG.getfloat();
+        this->khmer = khmer;
+        this->math = math;
+        this->english = english;
         total = khmer + math + english;
         avg = total / 3;
         if (avg >= 90)
@@ -137,15 +131,16 @@ public:
         {
             grade = "E";
         }
-        else if (avg < 50)
+        else if(avg < 50)
         {
             grade = "F";
         }
         else if (avg < 0)
         {
-            grade = "N/A";
+            grade = "Invalid";
         }
     }
+    
 
     // getChoice
     void Show()
@@ -161,8 +156,7 @@ public:
     }
     void ShowRecord()
     {
-        cout << khmer << "\t" << math << "\t";
-        cout << "\t" << english << "\t" << total << endl;
+       cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" << khmer << "\t" << math << "\t" << english << "\t" << total << "\t" << avg << "\t" << grade << endl;
     }
     string getUsername()
     {

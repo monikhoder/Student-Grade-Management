@@ -184,5 +184,29 @@ public:
 
         } while (choice != 0 && choice > 3);
     }
+    void AddScore(int index, vector <Person*> & users){
+        float khmer;
+        float math;
+        float english;
+        cout << "Enter Khmer score :";
+        khmer = VG.getfloat();
+        cout << "Enter Math score :";
+        math = VG.getfloat();
+        cout << "Enter English score :";
+        english = VG.getfloat();
+        users[index]->Setscore(khmer,math,english);
+    }
+    void ShowRecord(vector <Person*> users){
+        cout << "No\tID\t\tFirstName/LastName\tKhmer\tMath\tEnglish\tTotal\tAvg\tGrade" << endl;
+        for (int i = 0; i < users.size(); i++)
+        {
+            if (users[i]->getRole() == "Student")
+            {
+                cout << i + 1 << "\t";
+                users[i]->ShowRecord();
+            }
+           
+        }
+    }
     
 };

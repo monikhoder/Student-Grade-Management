@@ -48,7 +48,7 @@ public:
     virtual void setLastName(string lastName) = 0;
     virtual void setGender(string gender) = 0;
     virtual void Add() = 0;
-    virtual void Update() = 0;
+    virtual void Setscore(float khmer, float math, float english) = 0;
     
     
     // getChoice

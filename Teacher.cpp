@@ -59,10 +59,9 @@ void Add(){
                 username = "Tc" + to_string(id);
                 password = "123";
             }
-void Update (){
+void Setscore(float khmer, float math, float english){
         
     }
-void AddRecord(){}
 
 void Show(){
     cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" + gender + "\t\t" + role << endl;

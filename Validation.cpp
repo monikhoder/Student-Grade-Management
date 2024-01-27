@@ -10,14 +10,17 @@ public:
     int getint()
     {
         int num;
-        cin >> num;
-        if (cin.fail())
+        do
         {
-            cin.clear();
-            cin.ignore(1000, '\n');
-            cout << "Please enter a number : " ;
-            getint();
-        }
+            cin >> num;
+            if (cin.fail())
+            {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "Please enter a number : ";
+                getint();
+            }
+        } while (cin.fail());
         return num;
     }
 
@@ -32,14 +35,19 @@ public:
     float getfloat()
     {
         float num;
+        do{
         cin >> num;
         if (cin.fail())
         {
             cin.clear();
             cin.ignore(1000, '\n');
-            cout << "Please enter a number" << endl;
+            cout << "Please enter a number : " ;
             getfloat();
         }
+        if (num > 100){
+            cout << "Max score is 100 : " ;
+        }
+        }while (num > 100);
         return num;
     }
 

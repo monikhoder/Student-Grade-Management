@@ -32,7 +32,9 @@ public:
                 admin.login();
                 break;
             case 0:
-                exit(0);
+                cout << "Thank you for using our system" << endl;
+                return;
+                break;
             default:
                 cout << "Wrong option" << endl;
                 break;

@@ -66,12 +66,13 @@ private:
             switch (choice)
             {
             case 1:
+            cout << "=========Add student record=========" << endl;
             int idx;
             idx = fun.Search(users);
             if (idx == -1 && users[idx]->getRole() != "Student"){
                 throw UserNotFoundException();
             }else{
-
+                fun.AddScore(idx, users);
             }
             
                 break;
@@ -82,7 +83,8 @@ private:
 
                 break;
             case 4:
-
+            cout << "=========View student record=========" << endl;
+            fun.ShowRecord(users);
                 break;
             case 5:
 
@@ -131,6 +133,7 @@ public:
         if (index == -1)
         {
             cout << "Invalid username or password" << endl;
+            return;
         }
         if (users[index]->getRole() == "Student")
         {
