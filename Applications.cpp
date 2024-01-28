@@ -8,14 +8,15 @@ using namespace std;
 class Applictions
 {
 private:
+//Data members
     Menu menu;
     Admin admin;
     UserApp user;
     Validation VG;
     int choice;
-    
 
 public:
+//Run App function
     void Run()
     {
         do

@@ -2,29 +2,17 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Menu.cpp"
-#include "Student.cpp"
-#include "Teacher.cpp"
 #include "Person.cpp"
 #include "Validation.cpp"
 #include <algorithm>
-#include <fstream>
-#include "Save.cpp"
 using namespace std;
 
-class Functions
-{
+class Functions{
 private:
-    // vector<Person*> users;
-    Student st;
-    Teacher tc;
-    Menu menu;
     Validation VG;
-    string filename = "user.dat";
 
 public:
-    int Search(vector<Person *> users)
-    {
+    int Search(vector<Person *> users){
         cout << "1. Search by ID" << endl;
         cout << "2. Search by Name" << endl;
         int choice;

@@ -16,6 +16,7 @@ using namespace std;
 class Admin
 {
 private:
+//Data members
     string username = "admin";
     string password = "admin";
     Menu menu;
@@ -27,8 +28,8 @@ private:
     Teacher tc;
     Save save;
     string filename = "user.dat";
-    void run()
-    {
+//Admin App
+    void run(){
         int choice;
         do
         {
@@ -92,11 +93,12 @@ private:
     }
 
 public:
+//Constructor
     Admin()
     {
         save.loadVectorFromFile(filename, users);
     }
-
+//Login function
     void login()
     {
         bool check = false;
@@ -112,6 +114,7 @@ public:
         
        
     }
+//Destructor
     ~Admin()
     {
         for (int i = 0; i < users.size(); i++)

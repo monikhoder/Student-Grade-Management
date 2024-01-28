@@ -9,36 +9,34 @@ class Teacher : public  Person{
 private:
 Validation VG;
 public:
-Teacher() : Person(){
+//Constructor
+    Teacher() : Person(){
 
-}
-Teacher (string firstName,string lastName, int id,string gender, string username, string password, string role) : Person (firstName,lastName, id,gender, username,  password, role){
+    }
+    Teacher (string firstName,string lastName, int id,string gender, string username, string password, string role) : Person (firstName,lastName, id,gender, username,  password, role){
        role = "Teacher";
     }
-void setUsername(string username)
+// setChoice
+    void setUsername(string username)
     {
         this->username = username;
     }
-void setID(int id)
-    {
-        this->id = id;
-    }
-void setPassword(string password)
+    void setPassword(string password)
     {
         this->password = password;
     }
-void setFirstName(string firstName)
+    void setFirstName(string firstName)
     {
         this->firstName = firstName;
     }
-void setLastName(string lastName)
+    void setLastName(string lastName)
     {
         this->lastName = lastName;
     }
-void setGender(string gender){
+    void setGender(string gender){
         this->gender = gender;
     }
-void Add(){
+    void Add(){
         int choice;
                 cout << "Enter first name: ";
                 firstName = VG.getstringNoSpace();
@@ -59,67 +57,69 @@ void Add(){
                 username = "Tc" + to_string(id);
                 password = "123";
             }
-void Setscore(float khmer, float math, float english){
+    void Setscore(float khmer, float math, float english){
         
     }
 
-void Show(){
+// getChoice
+    string getUsername()
+    {
+        return username;
+    }
+    string getPassword()
+    {
+        return password;
+    }
+    string getRole()
+    {
+        return role;
+    }
+    string getfirstName()
+    {
+        return firstName;
+    }
+    string getlastName()
+    {
+        return lastName;
+    }
+    int getID()
+    {
+        return id;
+    }
+    string getGender(){
+    return gender;
+    }
+    float getKhmer(){
+    return 0;
+    }
+    float getMath(){
+    return 0;
+    }
+    float getEnglish(){
+    return 0;
+    }
+    float getTotal(){
+    return 0;
+    }
+    float getAvg(){
+    return 0;
+    }
+    string getGrade(){
+    return "-";
+    }
+// Ouput
+    void Show(){
     cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" + gender + "\t\t" + role << endl;
-}
-void View()
+    }
+    void View()
     {
         cout << "ID: " << id << endl;
         cout << "Full Name : " << firstName << " " << lastName << endl;
         cout << "Gender : " << gender << endl;
         cout << "Role : " << role << endl;
     }
-void ShowRecord(){}
-void ViewRecord(){}
-string getUsername()
-    {
-        return username;
-    }
-string getPassword()
-    {
-        return password;
-    }
-string getRole()
-    {
-        return role;
-    }
-string getfirstName()
-    {
-        return firstName;
-    }
-string getlastName()
-    {
-        return lastName;
-    }
-int getID()
-    {
-        return id;
-    }
-string getGender(){
-    return gender;
-}
-float getKhmer(){
-    return 0;
-}
-float getMath(){
-    return 0;
-}
-float getEnglish(){
-    return 0;
-}
-float getTotal(){
-    return 0;
-}
-float getAvg(){
-    return 0;
-}
-string getGrade(){
-    return "-";
-}
+    void ShowRecord(){}
+    void ViewRecord(){}
 
 
 };

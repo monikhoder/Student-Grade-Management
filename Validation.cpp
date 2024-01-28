@@ -4,8 +4,7 @@
 
 using namespace std;
 
-class Validation
-{
+class Validation{
 public:
     int getint()
     {

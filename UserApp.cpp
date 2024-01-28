@@ -12,9 +12,9 @@
 #include "UserNotFoundException.cpp"
 using namespace std;
 
-class UserApp
-{
+class UserApp{
 private:
+//Data members
     Menu menu;
     Save save;
     Functions fun;
@@ -24,6 +24,7 @@ private:
     int choice;
     string Userfilename = "user.dat";
     vector<Person *> users;
+//Student App
     void Student(int index)
     {
         do
@@ -58,6 +59,7 @@ private:
             }
         } while (choice != 0);
     }
+//Teacher App
     void Teacher(int index)
     {
         do
@@ -140,10 +142,12 @@ private:
     }
 
 public:
+//constructor
     UserApp()
     {
         save.loadVectorFromFile(Userfilename, users);
     }
+//login function
     void login()
     {
         int index = loginIndex();
@@ -161,6 +165,7 @@ public:
             Teacher(index);
         }
     }
+//destructor
     ~UserApp()
     {
         for (int i = 0; i < users.size(); i++)

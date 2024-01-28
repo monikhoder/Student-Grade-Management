@@ -40,7 +40,4 @@ public:
             }
             cout << "Wrong password" << endl;    
     }
-~Modify(){
-            
-        };
     };

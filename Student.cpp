@@ -16,6 +16,7 @@ private:
     Validation VG;
 
 public:
+// Constructor
     Student() : Person()
     {
 
@@ -37,14 +38,10 @@ public:
         this->grade = grade;
     }
 
-    // setChoice
+// setChoice
     void setUsername(string username)
     {
         this->username = username;
-    }
-    void setID(int id)
-    {
-        this->id = id;
     }
     void setPassword(string password)
     {
@@ -61,15 +58,6 @@ public:
     void setGender(string gender)
     {
         this->gender = gender;
-    }
-    void SetScore(float khmer, float math, float english, float total, float avg, string grade)
-    {
-        this->khmer = khmer;
-        this->math = math;
-        this->english = english;
-        this->total = total;
-        this->avg = avg;
-        this->grade = grade;
     }
 
     void Add()
@@ -142,30 +130,7 @@ public:
     }
     
 
-    // getChoice
-    void Show()
-    {
-        cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" + gender + "\t\t" + role << endl;
-    }
-    void View()
-    {
-        cout << "ID: " << id << endl;
-        cout << "Full Name : " << firstName << " " << lastName << endl;
-        cout << "Gender : " << gender << endl;
-        cout << "Role : " << role << endl;
-    }
-    void ShowRecord()
-    {
-       cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" << khmer << "\t" << math << "\t" << english << "\t" << total << "\t" << avg << "\t" << grade << endl;
-    }
-    void ViewRecord(){
-        cout << "Khmer : " << khmer << endl;
-        cout << "Math : " << math << endl;
-        cout << "English : " << english << endl;
-        cout << "Total : " << total << endl;
-        cout << "Average : " << avg << endl;
-        cout << "Grade : " << grade << endl;
-    }
+// getChoice
     string getUsername()
     {
         return username;
@@ -217,6 +182,30 @@ public:
     string getGrade()
     {
         return grade;
+    }
+//Ouput
+     void Show()
+    {
+        cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" + gender + "\t\t" + role << endl;
+    }
+    void View()
+    {
+        cout << "ID: " << id << endl;
+        cout << "Full Name : " << firstName << " " << lastName << endl;
+        cout << "Gender : " << gender << endl;
+        cout << "Role : " << role << endl;
+    }
+    void ShowRecord()
+    {
+       cout << id << "\t\t" + firstName + "\t" + lastName + "\t\t" << khmer << "\t" << math << "\t" << english << "\t" << total << "\t" << avg << "\t" << grade << endl;
+    }
+    void ViewRecord(){
+        cout << "Khmer : " << khmer << endl;
+        cout << "Math : " << math << endl;
+        cout << "English : " << english << endl;
+        cout << "Total : " << total << endl;
+        cout << "Average : " << avg << endl;
+        cout << "Grade : " << grade << endl;
     }
     
 };
