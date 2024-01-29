@@ -13,8 +13,7 @@
 #include "Save.cpp"
 #include "UserNotFoundException.cpp"
 using namespace std;
-class Admin
-{
+class Admin{
 private:
 //Data members
     string username = "admin";
