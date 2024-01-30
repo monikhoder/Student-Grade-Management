@@ -1,10 +1,12 @@
 #pragma once
-#include <iostream>
+#include <exception>
 using namespace std;
 
-class UserNotFoundException: public exception{
-    public:
-        const char* what() const throw(){
-            return "user was not found";
-        }
+class UserNotFoundException: public exception {
+    const char* what() const throw() {
+        return "User not found";
+    }
 };
+   
+
+

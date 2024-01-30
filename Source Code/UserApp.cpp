@@ -37,18 +37,22 @@ private:
             case 1:
             cout << "=========View Information=========" << endl;
             users[index]->View();
+                system("pause");
                 break;
             case 2:
             cout << "=========View Record=========" << endl;
             users[index]->ViewRecord();
+                system("pause");
                 break;
             case 3:
             cout << "=========Modify Username=========" << endl;
             md.ChangeUsername(users, index);
+                system("pause");
                 break;
             case 4:
             cout << "=========Modify Password=========" << endl;
             md.ChangePassword(users, index);
+                system("pause");
                 break;
             case 0:
             save.saveVectorToFile(Userfilename, users);
@@ -77,8 +81,10 @@ private:
                 throw UserNotFoundException();
             }else{
                 fun.AddScore(idx, users);
+                cout << "Student record has been added" << endl;
+                
             }
-            
+                system("pause");
                 break;
             case 2:
             cout << "=========Search student=========" << endl;
@@ -89,6 +95,7 @@ private:
                 users[idx]->View();
                 users[idx]->ViewRecord();
             }
+                system("pause");
                 break;
             case 3:
             cout << "=========Update student record=========" << endl;
@@ -99,18 +106,22 @@ private:
             }else{
                 fun.AddScore(idx, users);
             }
+                system("pause");
                 break;
             case 4:
             cout << "=========View student record=========" << endl;
             fun.ShowRecord(users);
+                system("pause");
                 break;
             case 5:
             cout << "=========Modify username=========" << endl;
             md.ChangeUsername(users, index);
+                system("pause");
                 break;
             case 6:
             cout << "=========Modify password=========" << endl;
             md.ChangePassword(users, index);
+                system("pause");
                 break;
             case 0:
             save.saveVectorToFile(Userfilename, users);
@@ -134,7 +145,6 @@ private:
         {
             if (users[i]->getUsername() == username && users[i]->getPassword() == password)
             {
-                cout << "Login successfully" << endl;
                 return i;
             }
         }
@@ -159,6 +169,7 @@ public:
         if (index == -1)
         {
             cout << "Invalid username or password" << endl;
+            system("pause");
             return;
         }
         if (users[index]->getRole() == "Student")

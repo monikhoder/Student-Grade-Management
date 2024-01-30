@@ -6,6 +6,8 @@ class Menu
 public:
     void Main_menu()
     {
+        system("cls");
+        cout << "================================================" << endl;
         cout << "*******Welcom to Student Mangement System*******" << endl;
         cout << "================================================" << endl;
         cout << "1. Login" << endl;
@@ -15,6 +17,7 @@ public:
     }
     void studentMenu()
     {
+        system("cls");
         cout << "Student Menu :" << endl;
         cout << "1. View info" << endl;
         cout << "2. View record" << endl;
@@ -25,6 +28,7 @@ public:
     }
     void teacherMenu()
     {
+        system("cls");
         cout << "Teacher Menu :" << endl;
         cout << "1. Add student record " << endl;
         cout << "2. Search student" << endl;
@@ -37,6 +41,7 @@ public:
     }
     void adminMenu()
     {
+        system("cls");
         cout << "Admin Menu :" << endl;
         cout << "1. Add Student account " << endl;
         cout << "2. Add Teacher account " << endl;

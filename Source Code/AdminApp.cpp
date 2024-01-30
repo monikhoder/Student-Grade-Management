@@ -42,46 +42,66 @@ private:
                 cout << "*******Add Student account*******" << endl;
                 st.Add();
                 users.push_back(new Student(st));
+                cout << "Student account has been added by :" << endl;
+                cout << "Username: " << st.getUsername() << endl;
+                cout << "Password: " << st.getPassword() << endl;
+                system("pause");
                 break;
             case 2:
                 cout << "*******Add Teacher account*******" << endl;
                 tc.Add();
                 users.push_back(new Teacher(tc));
+                cout << "Teacher account has been added by :" << endl;
+                cout << "Username: " << tc.getUsername() << endl;
+                cout << "Password: " << tc.getPassword() << endl;
+                system("pause");
                 break;
             case 3:
                 cout << "*******Search user*******" << endl;
                 idx = fun.Search(users);
                 if (idx != -1){
+                    cout << "User found" << endl;
                     users[idx]->View();
-                }else{
+                }else {
                     throw UserNotFoundException();
                 }
-                
+                system("pause");
                 break;
             case 4:
                 cout << "*******Sort user list*******" << endl;
                 fun.Sort(users);
+                cout << "User list has been sorted" << endl;
+                system("pause");
                 break;
             case 5:
                 cout << "*******View user list*******" << endl;
                 fun.Show(users);
+                system("pause");
                 break;
             case 6:
                 cout << "*******Update user account*******" << endl;
                 idx = fun.Search(users);
                 fun.Update(idx, users);
+                cout << "User account has been updated" << endl;
+                system("pause");
                 break;
             case 7:
                 cout << "*******Remove user account*******" << endl;
                 fun.Remove(users);
+                cout << "User account has been removed" << endl;
+                system("pause");
                 break;
             case 8:
                 cout << "*******Save*******" << endl;
                 save.saveVectorToFile(filename, users);
+                cout << "User list has been saved" << endl;
+                system("pause");
                 break;
             case 9:
                 cout << "*******Load*******" << endl;
                 save.loadVectorFromFile(filename, users);
+                cout << "User list has been loaded" << endl;
+                system("pause");
                 break;
             case 0:
                 cout << "*******Exit*******" << endl;
@@ -113,6 +133,7 @@ public:
         else
         {
             cout << "Wrong username or password" << endl;
+            system("pause");
         }
         
        

@@ -27,7 +27,6 @@ public:
         } while (choice != 1 && choice != 2);
         if (users.size() == 0)
         {
-            cout << "No user in list" << endl;
             return -1;
         }
         if (choice == 1)
