@@ -10,6 +10,7 @@
 #include "Teacher.cpp"
 #include "Modify.cpp"
 #include "UserNotFoundException.cpp"
+#include "CheckFile.cpp"
 using namespace std;
 
 class UserApp{
@@ -145,7 +146,11 @@ public:
 //constructor
     UserApp()
     {
-        save.loadVectorFromFile(Userfilename, users);
+        CheckFile check;
+        if (check.checkFile() == true){
+            save.loadVectorFromFile(Userfilename, users);
+        }
+        
     }
 //login function
     void login()

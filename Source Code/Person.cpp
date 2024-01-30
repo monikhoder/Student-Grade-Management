@@ -3,7 +3,7 @@
 #include <string>
 #include "Menu.cpp"
 using namespace std;
-static int ID = 1000;
+
 class Person
 {
 private:

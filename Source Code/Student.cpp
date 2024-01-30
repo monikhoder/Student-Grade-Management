@@ -3,6 +3,7 @@
 #include <string>
 #include "Person.cpp"
 #include "Validation.cpp"
+#include "static_ID.cpp"
 using namespace std;
 class Student : public Person
 {
@@ -63,6 +64,7 @@ public:
     void Add()
     {
         int choice;
+        static_ID ID;
         cout << "Enter first name: ";
         firstName = VG.getstringNoSpace();
         cout << "Enter last name: ";
@@ -82,7 +84,7 @@ public:
 
         } while (choice != 1 && choice != 2);
         role = "Student";
-        id = ID++;
+        id = ID.getID();
         username = "St" + to_string(id);
         password = "123";
         khmer = 0;

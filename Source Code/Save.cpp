@@ -34,6 +34,7 @@ public:
             cerr << "Error: Unable to open file " << filename << endl;
         }
     }
+    
     void loadVectorFromFile(const string& filename, vector<Person*>& users) {
         ifstream inputFile(filename);
         if (inputFile.is_open()) {

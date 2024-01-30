@@ -3,6 +3,7 @@
 #include <string>
 #include "Person.cpp"
 #include "Validation.cpp"
+#include "static_ID.cpp"
 using namespace std;
 
 class Teacher : public  Person{
@@ -37,6 +38,7 @@ public:
         this->gender = gender;
     }
     void Add(){
+        static_ID ID;
         int choice;
                 cout << "Enter first name: ";
                 firstName = VG.getstringNoSpace();
@@ -53,7 +55,7 @@ public:
 
                 }while (choice != 1 && choice != 2);
                 role = "Teacher";
-                id = ID++;
+                id = ID.getID();
                 username = "Tc" + to_string(id);
                 password = "123";
             }

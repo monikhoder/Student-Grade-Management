@@ -12,6 +12,7 @@
 #include "Functions.cpp"
 #include "Save.cpp"
 #include "UserNotFoundException.cpp"
+#include "CheckFile.cpp"
 using namespace std;
 class Admin{
 private:
@@ -94,9 +95,12 @@ private:
 public:
 //Constructor
     Admin()
-    {
-        save.loadVectorFromFile(filename, users);
+    { CheckFile check;
+       if (check.checkFile() == true){
+           save.loadVectorFromFile(filename, users);
     }
+    }
+   
 //Login function
     void login()
     {
