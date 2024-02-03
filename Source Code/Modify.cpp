@@ -14,7 +14,7 @@ private:
 public:
  void ChangeUsername(vector <Person*>& users, int index){
      cout << "Enter new username : ";
-     username = VG.getstringNoSpace();
+     username = VG.getstring();
     for (int i = 0; i < users.size(); i++)
     {
         if (users[i]->getUsername() == username)
@@ -27,13 +27,13 @@ public:
     }
     void ChangePassword(vector <Person*>& users, int index){
             cout << "Enter old password : ";
-            password = VG.getstringNoSpace();
+            password = VG.getstring();
             for (int i = 0; i < users.size(); i++)
             {
                 if (users[i]->getPassword() == password)
                 {
                     cout << "Enter new password : ";
-                    password = VG.getstringNoSpace();
+                    password = VG.getstring();
                     users[index]->setPassword(password);
                     return;
                 }

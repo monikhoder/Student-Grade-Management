@@ -66,9 +66,9 @@ public:
         int choice;
         static_ID ID;
         cout << "Enter first name: ";
-        firstName = VG.getstringNoSpace();
+        firstName = VG.getstring();
         cout << "Enter last name: ";
-        lastName = VG.getstringNoSpace();
+        lastName = VG.getstring();
         do
         {
             cout << "Enter gender (1 =Male / 2 = Female) : ";

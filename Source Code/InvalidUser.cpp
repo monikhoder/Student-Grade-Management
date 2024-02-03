@@ -16,9 +16,9 @@ public:
         string user;
         string pass;
         cout << "Enter username: ";
-        user = VG.getstringNoSpace();
+        user = VG.getstring();
         cout << "Enter password: ";
-        pass = VG.getstringNoSpace();
+        pass = VG.getstring();
         if (user == username && pass == password)
         {
             return true;
@@ -32,9 +32,9 @@ public:
         string user;
         string pass;
         cout << "Enter username: ";
-        user = VG.getstringNoSpace();
+        user = VG.getstring();
         cout << "Enter password: ";
-        pass = VG.getstringNoSpace();
+        pass = VG.getstring();
         for (int i = 0; i < users.size(); i++)
         {
             if (user == users[i]->getUsername() && pass == users[i]->getPassword())

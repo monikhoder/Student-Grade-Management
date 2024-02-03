@@ -9,7 +9,6 @@
 #include "Student.cpp"
 #include "Teacher.cpp"
 #include "Modify.cpp"
-#include "UserNotFoundException.cpp"
 #include "CheckFile.cpp"
 using namespace std;
 
@@ -77,8 +76,8 @@ private:
             case 1:
             cout << "=========Add student record=========" << endl;
             idx = fun.Search(users);
-            if (idx == -1 && users[idx]->getRole() != "Student"){
-                throw UserNotFoundException();
+            if (idx == -1 || users[idx]->getRole() != "Student"){
+                cout << "Student not found" << endl;
             }else{
                 fun.AddScore(idx, users);
                 cout << "Student record has been added" << endl;
@@ -89,8 +88,8 @@ private:
             case 2:
             cout << "=========Search student=========" << endl;
             idx = fun.Search(users);
-            if (idx == -1 && users[idx]->getRole() != "Student"){
-                throw UserNotFoundException();
+            if (idx == -1 || users[idx]->getRole() != "Student"){
+                cout << "Student not found" << endl;
             }else{
                 users[idx]->View();
                 users[idx]->ViewRecord();
@@ -101,8 +100,8 @@ private:
             cout << "=========Update student record=========" << endl;
             int idx;
             idx = fun.Search(users);
-            if (idx == -1 && users[idx]->getRole() != "Student"){
-                throw UserNotFoundException();
+            if (idx == -1 || users[idx]->getRole() != "Student"){
+                cout << "Student not found" << endl;
             }else{
                 fun.AddScore(idx, users);
             }
@@ -138,9 +137,9 @@ private:
         string username;
         string password;
         cout << "Enter username: ";
-        username = VG.getstringNoSpace();
+        username = VG.getstring();
         cout << "Enter password: ";
-        password = VG.getstringNoSpace();
+        password = VG.getstring();
         for (int i = 0; i < users.size(); i++)
         {
             if (users[i]->getUsername() == username && users[i]->getPassword() == password)

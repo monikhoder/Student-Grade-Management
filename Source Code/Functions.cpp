@@ -123,12 +123,12 @@ public:
             {
             case 1:
                 cout << "Enter new First Name :";
-                set = VG.getstringNoSpace();
+                set = VG.getstring();
                 users[index]->setFirstName(set);
                 break;
             case 2:
                 cout << "Enter new Last Name :";
-                set = VG.getstringNoSpace();
+                set = VG.getstring();
                 users[index]->setLastName(set);
                 break;
             case 3:

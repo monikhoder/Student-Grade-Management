@@ -11,7 +11,6 @@
 #include "InvalidUser.cpp"
 #include "Functions.cpp"
 #include "Save.cpp"
-#include "UserNotFoundException.cpp"
 #include "CheckFile.cpp"
 using namespace std;
 class Admin{
@@ -63,7 +62,7 @@ private:
                     cout << "User found" << endl;
                     users[idx]->View();
                 }else {
-                    throw UserNotFoundException();
+                    cout << "User not found" << endl;
                 }
                 system("pause");
                 break;

@@ -7,6 +7,7 @@
 #include "Person.cpp"
 #include "Student.cpp"
 #include "Teacher.cpp"
+#include "FileNotFound.cpp"
 using namespace std;
 class Save{
 private:
@@ -31,7 +32,7 @@ public:
 
             outputFile.close();
         } else {
-            cerr << "Error: Unable to open file " << filename << endl;
+          throw FileNotFound(filename);
         }
     }
     
@@ -63,7 +64,7 @@ public:
             }
             inputFile.close();
         } else {
-            cerr << "Error: Unable to open file " << filename << endl;
+           throw FileNotFound(filename);
         }
     }
 

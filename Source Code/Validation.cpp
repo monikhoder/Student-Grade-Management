@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
-
+#include <cctype>
 using namespace std;
 
 class Validation{
@@ -25,10 +25,9 @@ public:
 
     string getstring()
     {
-        string enter;
-        cin.ignore();
-        getline(cin, enter);
-        return enter;
+        string input;
+        cin >> input;
+        return input;
     }
 
     float getfloat()
@@ -49,20 +48,5 @@ public:
         }while (num > 100);
         return num;
     }
-
-    string getstringNoSpace()
-    {
-        string enter;
-        cin >> enter;
-        return enter;
-    }
-    
-
-
-
-    
-
-
-
 
 };
