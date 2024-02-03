@@ -32,7 +32,8 @@ public:
 
             outputFile.close();
         } else {
-          throw FileNotFound(filename);
+          FileNotFound e(filename);
+               cerr << e.what() << endl;
         }
     }
     
@@ -64,7 +65,8 @@ public:
             }
             inputFile.close();
         } else {
-           throw FileNotFound(filename);
+           FileNotFound e(filename);
+               cerr << e.what() << endl;
         }
     }
 

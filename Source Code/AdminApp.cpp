@@ -93,13 +93,11 @@ private:
             case 8:
                 cout << "*******Save*******" << endl;
                 save.saveVectorToFile(filename, users);
-                cout << "User list has been saved" << endl;
                 system("pause");
                 break;
             case 9:
                 cout << "*******Load*******" << endl;
                 save.loadVectorFromFile(filename, users);
-                cout << "User list has been loaded" << endl;
                 system("pause");
                 break;
             case 0:
